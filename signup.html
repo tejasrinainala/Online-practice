@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" >
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+        <link rel="stylesheet" href="home.css"/>
+    </head>
+    <body>
+        <div>
+            <h2>Fill your details to Signup!</h2>
+        <form>
+            <table>
+                <tr>
+                    <td>
+                        <input type="text" id="text-input" 
+                            placeholder="Enter Full Name">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="date" id="'date-input"
+                            placeholder="Enter DOB"
+                        >
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="email" id="email-input" 
+                            placeholder="Enter email"
+                        >
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="password" id="pwd-input"
+                        placeholder="Enter password">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="number" id="num-input"
+                        placeholder="Enter mobile number">
+                    </td>
+                </tr>
+        </form>
+        </table>
+        <button id="button" onClick="validateEmail()">Submit</button>
+        <script>
+            const button = document.getElementById('button');
+            button.addEventListener('click',()=>
+        {
+            validateTextInput();
+            validateEmail();
+            validatePassword();
+            validateMobileNum();
+            // alert('Submitted!')
+        })
+            function validateTextInput()
+            {
+                const textInput = document.getElementById('text-input').value;
+                const isNumeric = /^\d+$/.test(textInput);
+                if(isNumeric)
+                {
+                    alert("Enter only alphabets")
+                }
+            }
+            function validateEmail() {
+                const emailInp = document.getElementById('email-input').value;
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; 
+                if (!emailRegex.test(emailInp)) {
+                    alert('Enter a valid email!');
+                } 
+            }
+            function validatePassword()
+            {
+                const pwd = document.getElementById('pwd-input').value;
+                if(pwd.length>8)
+                {
+                    alert('Enter 8 charecters only!')
+                }
+                else if(pwd.length<8)
+                {
+                    alert('Enter 8 charecters!')
+                }
+            }
+            function validateMobileNum()
+            {
+                const mobNum = document.getElementById('num-input').value;
+                if(mobNum.length>10)
+                {
+                    alert('Enter valid mobile number')
+                }
+                else if(mobNum.length<10)
+                {
+                    alert('Enter valid mobile number')
+                }
+            }
+        </script>
+        </div>
+    </body>
+</html>
