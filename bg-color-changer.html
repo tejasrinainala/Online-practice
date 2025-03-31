@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Color changer</title>
+    </head>
+    <body>
+        <center><h1>Change the background color according to your choice!</h1></body></center>
+        <button id="button">Change Color!</button>
+        <div>
+            <style>
+                button {
+                    color : black;
+                    border : 2px solid white;
+                    margin:20px 600px 20px 600px;
+                    padding:30px 30px;
+                    font-size: x-large;
+                    border-radius: 30px;
+                }
+            </style>
+        </div>
+        <div>
+            <script>
+                document.getElementById('button').onclick = () => {
+                let r = Math.floor(Math.random() * 256);
+                let g = Math.floor(Math.random() * 256);
+                let b = Math.floor(Math.random() * 256);
+
+                let randomColor = `rgb(${r}, ${g}, ${b})`;
+
+                document.body.style.backgroundColor = randomColor;
+
+                console.log(randomColor);
+    };
+                
+            </script>
+        </div>
+    </body>
+</html>
