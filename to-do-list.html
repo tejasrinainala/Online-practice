@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To Do List</title>
+</head>
+<body>
+    <center><h1>Add and Delete items to your To-Do List!</h1></center>
+
+    <div class="input-field">
+        <center><input id="input" type="text" placeholder="Enter tasks"/></center>
+        <center><button id="button">Add</button></center>
+    </div>
+
+    <ul id="taskList"></ul> <!-- ✅ Added to store tasks -->
+
+    <style>
+        input {
+            font-size: medium;
+            width: 300px;  
+            height: 40px;  
+            font-size: 18px;
+            border-radius: 10px;
+        }
+        button {
+            margin-top: 10px;
+            background-color: green;
+            color: white;
+            border-radius: 10px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        li {
+            font-size: 20px;
+            margin: 5px;
+        }
+        button.delete {
+            background-color: red;
+            font-size: 15px;
+            margin-left: 10px;
+        }
+    </style>
+
+    <script>
+        document.getElementById('button').onclick = () => {
+            let inputValue = document.getElementById('input').value.trim();
+            if (inputValue === "") {
+                alert("Please enter a task!");
+                return;
+            }
+
+            let li = document.createElement("li");
+            li.innerText = inputValue;
+
+            // ✅ Add delete button
+            let deleteBtn = document.createElement("button");
+            deleteBtn.innerText = "❌";
+            deleteBtn.classList.add("delete");
+            deleteBtn.onclick = () => li.remove();
+
+            li.appendChild(deleteBtn);
+            document.getElementById('taskList').appendChild(li);
+
+            document.getElementById('input').value = ""; // ✅ Clear input field after adding
+        };
+    </script>
+</body>
+</html>
