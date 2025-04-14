@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Word Counter</title>
+    </head>
+    <body>
+        <center>
+            <h2>Count the no of words and charecters in a sentence!</h2>
+            <input id="input" type="text" placeholder="Enter a sentence.."/>
+            <button id="button">Count Words</button>
+            <button id ="but-char">Count charecters</button>
+        </center>   
+        <div id="result"></div>
+        <style>
+            body{
+                background-image: url('https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1740&q=80');
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+                font-family: Arial, sans-serif;
+            }
+            h2{
+                color:white;
+            }
+            input {
+                font-size: 20px;
+                border: 2px solid black;
+                border-radius: 10px;
+                padding: 10px;
+                width: 250px;
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                margin-bottom:20px;
+                }
+
+                button {
+                font-size: 20px;
+                padding: 10px 20px;
+                background-color: green;
+                color: white;
+                border: none;
+                border-radius: 10px;
+                cursor: pointer;
+                }
+
+        </style>
+        <script>
+            document.getElementById('button').onclick=()=>
+            {
+                let inp=document.getElementById('input').value;
+                let res=document.getElementById("result")
+                let h3=document.createElement("h3")
+                let words = inp.trim().split(" ");
+                let filtered = words.filter(word => word !== "");
+                h3.innerText=`You typed ${filtered.length} words`
+                res.appendChild(h3);
+
+
+            }   
+            document.getElementById('but-char').onclick=()=>
+            {
+                let input=document.getElementById('input').value;
+                let result=document.getElementById("result")
+                let h3=document.createElement("h3");
+                let c=0;
+                for(let i=0;i<input.length;i++)
+                {
+                    if(input[i]!='')
+                    c+=1
+                }
+                h3.innerText=`You typed ${c} charecters`
+                result.appendChild(h3);
+            }
+            document.getElementById('input').onclick=()=>
+            {
+                document.getElementById("input").value = "";
+                document.getElementById("result").innerText='';
+            }
+
+        </script> 
+    </body>
+</html>
